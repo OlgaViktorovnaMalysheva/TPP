@@ -8,18 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
 import static org.openqa.selenium.By.*;
 
-public class CheckName extends WebDriverSettings {
-
-    @Before
-    public void enterData() {
-        Data getData = new Data();
-        driver.get(getData.getUrl);
-        driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
-        driver.findElement(inputEmail).sendKeys(getData.email);
-        driver.findElement(inputPassword).sendKeys(getData.password);
-        driver.findElement(btnComeIn).click();
-    }
+public class CheckName extends CheckNameStart {
 
     @Test
     public void checkName() {
@@ -27,6 +16,7 @@ public class CheckName extends WebDriverSettings {
         Assert.assertTrue (driver.findElement(xpath("//*[@id=\"hook_Loader_MyFriendsSquareCardsPagingBLoader\"]//*[contains(@class,\"n-t bold\")]")).
             getText().contains("technopolisBot38 technopolisBot38"));
     }
+
 }
 
 

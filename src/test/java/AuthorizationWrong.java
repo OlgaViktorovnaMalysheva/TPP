@@ -2,12 +2,11 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class Authorization extends PagePath {
+public class AuthorizationWrong extends PagePath {
     public ChromeDriver driver;
 
     @Before
@@ -17,17 +16,16 @@ driver = new ChromeDriver();
     }
 
     @Test
-    public void authorization() {
+    public void wrongautorization() {
         Data getData = new Data();
         driver.get(getData.getUrl);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.findElement(inputEmail).sendKeys(getData.email);
-        driver.findElement(inputPassword).sendKeys(getData.password);
+        driver.findElement(inputPassword).sendKeys(getData.wrongpassword);
         driver.findElement(btnComeIn).click();
-        Assert.assertEquals(  "technopolisBot2 technopolisBot2",
-                driver.findElement(framePerson).getText());
-
+        Assert.assertEquals(  "Неправильно указан логин и/или пароль",
+                driver.findElement(frameLoginWrog).getText());
     }
 
     @After
