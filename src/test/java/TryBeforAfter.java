@@ -7,23 +7,22 @@ import java.util.concurrent.TimeUnit;
 
 
 public class TryBeforAfter extends WebDriverSettings {
-    public ChromeDriver driver;
 
     @Test
-    public void wrongautorization()  {
+    public void wrongAutorization()  {
         Data getData = new Data();
-        driver.get(getData.getUrl);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
-        driver.findElement(inputEmail).sendKeys(getData.email);
-        driver.findElement(inputPassword).sendKeys(getData.wrongpassword);
-        driver.findElement(btnComeIn).click();
+        this.driver.get(getData.getUrl);
+        this.driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
+        this.driver.manage().window().maximize();
+        this.driver.findElement(inputEmail).sendKeys(getData.email);
+        this.driver.findElement(inputPassword).sendKeys(getData.wrongpassword);
+        this.driver.findElement(btnComeIn).click();
     }
     @Test
     public void authorization() {
         Data getData = new Data();
         driver.get(getData.getUrl);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.findElement(inputEmail).sendKeys(getData.email);
         driver.findElement(inputPassword).sendKeys(getData.password);
